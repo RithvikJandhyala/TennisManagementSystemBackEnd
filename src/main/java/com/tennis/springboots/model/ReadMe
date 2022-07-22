@@ -1,0 +1,23 @@
+Player No Show 
+   -> Loop through all matches for this Player
+   		-> Set match (Singles / Doubles) status as Cancelled
+   		-> Unassign Court if match assigned
+   		-> Get Match Proposals (see below)
+   
+Match is Completed
+  -> Set match players' status to Available
+  -> Set court status to Available
+  -> Get Match Proposals (see below)
+
+Match is set to Playing 
+  -> Set match player' status to Available
+  -> Set court status to Unavailable and assign match to Court
+  -> Get Match Proposals (see below)
+  
+Get Match Proposals
+  -> Loop through all matches
+      -> If match is Paired and Players are available
+           -> Set match status to On Deck
+      -> If match is On Deck
+           -> check if any court is available
+                -> Set Match status to Playing (refer above: Match status is Playing)
